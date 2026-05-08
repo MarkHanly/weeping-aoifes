@@ -1,0 +1,128 @@
+@import "tailwindcss";
+@plugin 'flowbite/plugin';
+@custom-variant dark (&:where(.dark, .dark *));
+/* ... */
+@source "../node_modules/flowbite-svelte/dist";
+@source "../node_modules/flowbite-svelte-icons/dist";
+@source "../node_modules/simple-datatables/dist";
+@source "../node_modules/@flowbite-svelte-plugins/datatable/dist";
+
+@layer base {
+  body {
+    @apply bg-slate-900;
+  }
+}
+
+
+@layer utilities {
+
+  .transform-style-preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+
+  .rotate-y-0 {
+    transform: rotateY(0deg);
+  }
+}
+
+
+@layer utilities {
+
+  .test-banner {
+    background-image: linear-gradient(
+      to right,
+      theme(colors.sky.400),
+      theme(colors.sky.400),
+      theme(colors.sky.300),
+      theme(colors.sky.200),
+      theme(colors.sky.100),
+      theme(colors.orange.100),
+      theme(colors.orange.300),
+      theme(colors.rose.300),
+      theme(colors.mauve.500),
+      theme(colors.sky.800),
+      theme(colors.sky.900),
+      theme(colors.slate.950),
+      theme(colors.sky.900),
+      theme(colors.sky.800),
+      theme(colors.mauve.500),
+      theme(colors.rose.200),
+      theme(colors.orange.200),
+      theme(colors.sky.100),
+      theme(colors.sky.200),
+      theme(colors.sky.300),
+      theme(colors.sky.400)
+    );
+    background-size: 100% 100%;
+  }
+
+  .daycycle-bg {
+    background-image: linear-gradient(
+      to bottom,
+      theme(colors.sky.400),
+      theme(colors.sky.300),
+      theme(colors.sky.200),
+      theme(colors.sky.100),
+      theme(colors.orange.100),
+      theme(colors.orange.300),
+      theme(colors.rose.300),
+      theme(colors.mauve.500),
+      theme(colors.sky.800),
+      theme(colors.sky.900),
+      theme(colors.slate.950),
+      theme(colors.sky.900),
+      theme(colors.sky.800),
+      theme(colors.mauve.500),
+      theme(colors.rose.200),
+      theme(colors.orange.200),
+      theme(colors.sky.100),
+      theme(colors.sky.200),
+      theme(colors.sky.300),
+      theme(colors.sky.400)
+    );
+    background-size: 100% 1800%;
+    animation: day-cycle 90s linear infinite;
+  }
+}
+
+@keyframes day-cycle {
+  0%, 15% {
+    background-position: 50% 0%;
+    color: #0f172a;
+  }
+
+  25%, 40% {
+    background-position: 50% 30%;
+    color: #0f172a;
+  }
+
+  45%, 55% {
+    background-position: 50% 55%;
+    color: #ffffff;
+  }
+
+  60%, 80% {
+    background-position: 50% 80%;
+    color: #ffffff;
+  }
+
+  85%, 100% {
+    background-position: 50% 100%;
+    color: #ffffff;
+  }
+}
+
+@keyframes day-cycle-horizontal {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
