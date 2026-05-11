@@ -36,16 +36,7 @@
 
 </script>
 
-<style>
-  :global {
-    @keyframes fade-in-out {
-      0%   { opacity: 0; }
-      20%  { opacity: 1; }
-      80%  { opacity: 1; }
-      100% { opacity: 0; }
-    }
-  }
-</style>
+
 
 <div class="text-white">{index}</div>
 

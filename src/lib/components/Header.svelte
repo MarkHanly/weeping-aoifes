@@ -8,31 +8,17 @@
   let { sorting, onChangeSorting } = $props();
   
   let volumeOn = $state(false);
-  let volume = $state(0);
   let audioElement: HTMLAudioElement;
   let infoModal = $state(false);
   let searchModal = $state(false);
 
 
-  function handleVolumeChange(e: Event) {
-    volume = parseFloat((e.target as HTMLInputElement).value);
-    if (volume > 0) {
-        volumeOn = true;
-        audioElement?.play();
-    }
-    if (audioElement) {
-      audioElement.volume = volume;
-    }
-  }
-
   function toggleAudio() {
     if (volumeOn) {
         volumeOn = false;
-        volume = 0
       audioElement?.pause();
     } else {
         volumeOn = true;
-        volume = 1
       audioElement?.play();
     }
   }
@@ -59,16 +45,6 @@
                 <VolumeMuteSolid class="h-8 w-8 text-slate-600" />
                 {/if}
             </Button>
-            
-            <input 
-              type="range" 
-              min="0" 
-              max="1" 
-              step="0.1" 
-              bind:value={volume}
-              onchange={handleVolumeChange}
-              class="w-24 cursor-pointer accent-slate-600"
-            />
 
              <Button class="text-lg" onclick={() => (searchModal = true)}>
                 <SearchSolid class="h-8 w-8 text-slate-600" />
