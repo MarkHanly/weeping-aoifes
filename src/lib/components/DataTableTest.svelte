@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { Table, TableHead, TableBody } from "@flowbite-svelte-plugins/datatable";
+  import { Table, TableHead, TableBody} from "@flowbite-svelte-plugins/datatable";
+  import { P, Heading } from "flowbite-svelte";
   import type { DataTableOptions } from "@flowbite-svelte-plugins/datatable";
   import episodes from "$lib/data/bbbc.json";
 
@@ -14,7 +15,13 @@
 
   const items: Episode[] = episodes as Episode[];
 
-  const headItems = ["Number", "Release Date", "Name", "Intro"];
+  const headItems = [
+    { text: 'Number', class: 'w-64' },
+    { text: 'Release Date', class: 'w-32' },
+    { text: 'Name', class: 'w-64' },
+    { text: 'Intro', class: 'w-auto' }
+  ];
+
   const bodyItems = items.map((item) => [item.epNum, item.release_date, item.name, item.intro]);
 
   const options: DataTableOptions = {
@@ -31,24 +38,17 @@
 
 <div class={className}>
   <div class="overflow-x-auto">
-    <Table dataTableOptions={options}>
+
+<Table
+  dataTableOptions={options}
+  class="w-full table-fixed">
+  <TableHead {headItems} />
+  <TableBody {bodyItems} />
+</Table>
+
+    <!-- <Table dataTableOptions={options}>
       <TableHead {headItems} />
-      <TableBody {bodyItems} />
-    </Table>
+      <TableBody {bodyItems} /> 
+    </Table> -->
   </div>
 </div>
-
-<style>
-  :global(nav.datatable-pagination) {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: center !important;
-    align-items: left !important;
-    flex-wrap: nowrap !important;
-  }
-
-  :global(.datatable-table tbody td) {
-    vertical-align: top !important;
-    pointer-events: all !important;
-  }
-</style>

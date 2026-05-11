@@ -52,7 +52,7 @@
              <Button onclick={() => (searchModal = true)}>
                 <SearchSolid class="h-8 w-8 text-slate-600" />
             </Button>
-            <Modal bind:open={searchModal} size="2xl" class="bg-slate-950/80 h-[90vh]">
+            <Modal bind:open={searchModal} size="2xl" class="bg-slate-950/90 h-[90vh]">
                 <DataTableTest className="flex-1" />
             </Modal>
 

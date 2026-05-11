@@ -131,3 +131,29 @@
 }
 
 
+.datatable-pagination .datatable-active a,
+.datatable-pagination .datatable-active a:focus,
+.datatable-pagination .datatable-active a:hover,
+.datatable-pagination .datatable-active button,
+.datatable-pagination .datatable-active button:focus,
+.datatable-pagination .datatable-active button:hover {
+  background-color: #ffdede;
+  cursor: default;
+}
+
+.datatable-wrapper .datatable-table tbody tr.selected {
+  background-color: #fff1ee !important;
+}
+
+  nav.datatable-pagination.ul {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: left !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .datatable-table tbody td {
+    vertical-align: top !important;
+    pointer-events: all !important;
+  }
