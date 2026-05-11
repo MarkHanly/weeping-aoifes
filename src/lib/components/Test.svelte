@@ -46,7 +46,7 @@
 
 <main class={`flex flex-col h-full ${className}`}>
   <!-- Internal header -->
-  <div class="h-10 test-banner"></div>
+  <!-- <div class="h-10 test-banner"></div> -->
 
   <!-- This is where the keyframes is applied. Note bg-sunset is defined in app.css -->
     <div class="flex-1 daycycle-bg flex items-center justify-center"> 

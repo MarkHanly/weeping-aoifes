@@ -29,8 +29,8 @@
 
 </script>
 
-<div class={"p-6" + className}>
-  <div class="overflow-x-auto rounded-xl border border-slate-900 text-slate-50 p-16 shadow-sm">
+<div class={className}>
+  <div class="overflow-x-auto">
     <Table dataTableOptions={options}>
       <TableHead {headItems} />
       <TableBody {bodyItems} />
@@ -43,11 +43,12 @@
     display: flex !important;
     flex-direction: row !important;
     justify-content: center !important;
-    align-items: center !important;
+    align-items: left !important;
     flex-wrap: nowrap !important;
   }
 
   :global(.datatable-table tbody td) {
     vertical-align: top !important;
+    pointer-events: all !important;
   }
 </style>

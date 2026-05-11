@@ -36,8 +36,10 @@
             weeping aoifes 
         </div>
 
-        <div class="flex flex-row gap-2 items-center">
-            <Button class="text-lg" onclick={toggleAudio}>
+        <div class="flex flex-row gap-2 items-center text-lg">
+
+            <!-- The audiao button -->
+            <Button onclick={toggleAudio}>
                 {#if volumeOn}
                 <VolumeUpSolid class="h-8 w-8 text-slate-600" />
                 {/if}
@@ -46,14 +48,16 @@
                 {/if}
             </Button>
 
-             <Button class="text-lg" onclick={() => (searchModal = true)}>
+            <!-- The search button -->
+             <Button onclick={() => (searchModal = true)}>
                 <SearchSolid class="h-8 w-8 text-slate-600" />
             </Button>
-            <Modal bind:open={searchModal} size="2xl" class="bg-slate-950 h-[90vh]">
+            <Modal bind:open={searchModal} size="2xl" class="bg-slate-950/80 h-[90vh]">
                 <DataTableTest className="flex-1" />
             </Modal>
 
-            <Button class="text-lg"
+            <!-- The info button -->
+            <Button 
                 onclick={() => (infoModal = true)}>
                 <InfoCircleSolid class="h-8 w-8 text-slate-600" />
             </Button>
