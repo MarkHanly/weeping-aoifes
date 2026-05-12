@@ -6,9 +6,10 @@
 
   type Episode = { // Defines the types for the episode data
     epNum: number;
-    release_date: string;
+    date: string;
     name: string;
     intro: string;
+    description: string;
   };
 
 

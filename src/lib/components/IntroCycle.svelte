@@ -4,9 +4,10 @@
 
   type Episode = {
     epNum: number;
-    release_date: string;
+    date: string;
     name: string;
     intro: string;
+    description: string;
   };
 
   function sampleArray<T>(arr: T[], n: number): T[] {
