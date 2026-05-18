@@ -1,6 +1,7 @@
 <script lang="ts">
   import Header from '$lib/components/Header.svelte';
   import Test from '$lib/components/Test.svelte';
+  import Card from '$lib/components/Card.svelte';
   import ScrollingCards from '$lib/components/ScrollingCards.svelte';
   import FlipCard from '$lib/components/FlipCard.svelte';
   import DataTableTest from '$lib/components/DataTableTest.svelte';

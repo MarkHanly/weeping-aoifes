@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Table, TableBody, TableBodyCell, TableBodyRow, TableHead, TableHeadCell } from "@flowbite-svelte-plugins/datatable";
+  import { Table, TableHead, TableBody } from "@flowbite-svelte-plugins/datatable";
   import type { DataTableOptions } from "@flowbite-svelte-plugins/datatable";
   import episodes from "$lib/data/bbbc.json";
 
@@ -7,48 +7,35 @@
 
   type Episode = {
     epNum: number;
-    date: string;
+    release_date: string;
     name: string;
     intro: string;
-    description: string;
   };
 
   const items: Episode[] = episodes as Episode[];
 
-  const bodyItems = items.map((item) => [item.epNum, item.date, item.name, item.intro, item.description]);
+  const headItems = ["Number", "Release Date", "Name", "Intro"];
+  const bodyItems = items.map((item) => [item.epNum, item.release_date, item.name, item.intro]);
 
   const options: DataTableOptions = {
     searchable: true,
     sortable: true,
-    paging: false,
-    striped: true,
-    scrollY: "70vh",
-    fixedColumns: true,
-    locale: 'en-IE'
+    paging: true,
+    perPage: 10,
+    perPageSelect: [10, 25, 50, 100]
   };
-
-
-
 </script>
 
-<div class={className}>
-  <div class="overflow-x-auto">
+<div class={"p-6 " + className}>
+  <div class="mb-4">
+    <h1 class="text-2xl font-semibold">Flowbite Svelte DataTable Test</h1>
+    <p class="text-sm text-slate-500">Sortable and searchable demo of Flowbite Svelte Datatables.</p>
+  </div>
 
-<Table
-  dataTableOptions={options}
-  class="w-full table-fixed">
-  <TableHead>
-    <TableHeadCell class="w-18 text-left">Number</TableHeadCell>
-    <TableHeadCell class="w-48 text-left">Date</TableHeadCell>
-    <TableHeadCell class="w-64 text-left">Title</TableHeadCell>
-    <TableHeadCell class="w-156 text-left">Intro</TableHeadCell>
-    <TableHeadCell class="text-left">Description</TableHeadCell>
-  </TableHead>
-  <TableBody 
-    class="m-64"
-   {bodyItems}> 
-  </TableBody>
-</Table>
-
+  <div class="overflow-x-auto rounded-xl border border-slate-200 bg-white/80 p-4 shadow-sm dark:border-slate-800 dark:bg-slate-950/80">
+    <Table dataTableOptions={options}>
+      <TableHead {headItems} />
+      <TableBody {bodyItems} />
+    </Table>
   </div>
 </div>

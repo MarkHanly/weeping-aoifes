@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Button, Modal, Skeleton } from "flowbite-svelte";
   import { SearchSolid, InfoCircleSolid, VolumeUpSolid, VolumeMuteSolid } from "flowbite-svelte-icons";
-  import DataTableTest from "./DataTableTest.svelte";
+  import Card from "./Card.svelte";
   import audioFile from "$lib/assets/audio.m4a"
   
   // destructure AFTER typing
@@ -53,7 +53,7 @@
                 <SearchSolid class="h-8 w-8 text-slate-600" />
             </Button>
             <Modal bind:open={searchModal} size="2xl" class="bg-slate-950/90 h-[90vh]">
-                <DataTableTest className="flex-1" />
+                <Card className="flex-1" />
             </Modal>
 
             <!-- The info button -->
