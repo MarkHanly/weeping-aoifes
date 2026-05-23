@@ -16,7 +16,8 @@
                     d.epNum?.toString(),
                     d.name,
                     d.date,
-                    d.description
+                    d.description,
+                    d.intro
                     ].some(field =>
                     field?.toLowerCase().includes(searchTerm.toLowerCase())
                     )
@@ -31,7 +32,7 @@
 
 <div class="${className}">
 
-    <div class="w-[95%] md:w-[80%] lg:w-[66%] mx-auto py-6">
+    <div class="sticky top-16 z-40 bg-slate-900 w-[95%] md:w-[80%] lg:w-[66%] mx-auto py-6">
         <Search 
             clearable
             oninput={(e) => searchTerm = e.currentTarget.value}>
@@ -44,18 +45,22 @@
         <div class="flex w-[95%] md:w-[80%] lg:w-[66%] mx-auto my-2 p-4 gap-8 rounded-2xl bg-gradient-to-br from-sky-950 to-sky-800
         text-sm">
 
-        <!-- Episode number + date -->
-        <div class="flex items-center gap-4 text-left font-semibold text-slate-500">
-            <span>#{episode.epNum}</span>
-            <span>{episode.date}</span>
+        <div class="flex flex-col">
+            
+            <!-- Episode name -->
+            <div class="flex-1 text-gray-400 font-md text-base leading-snug tracking-tight uppercase">
+                {episode.name}
+            </div>
+
+            <!-- Episode number + date -->
+            <div class="flex items-center gap-4 text-left font-semibold text-slate-500">
+                <span>#{episode.epNum}</span>
+                <span>{episode.date}</span>
+            </div>
+
         </div>
 
-        <!-- Episode name -->
-        <div class="flex-1 text-gray-400 font-medium text-base leading-snug tracking-tight">
-            {episode.name}
-        </div>
-        
-        <!-- Caret icon -->
+        <!-- Info icon -->
         <div class="flex items-start ml-auto">
             <InfoCircleSolid class="w-5 h-5 text-gray-500 cursor-pointer hover:text-gray-300 transition" />
             <Popover class="flex flex-col bg-slate-800  border-1 border-slate-200 max-w-md">
