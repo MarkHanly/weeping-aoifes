@@ -1,11 +1,5 @@
 <script lang="ts">
-  import Header from '$lib/components/Header.svelte';
-  import Test from '$lib/components/Test.svelte';
-  import Card from '$lib/components/Card.svelte';
-  import ScrollingCards from '$lib/components/ScrollingCards.svelte';
-  import FlipCard from '$lib/components/FlipCard.svelte';
-  import DataTableTest from '$lib/components/DataTableTest.svelte';
-  import IntroCycle from '$lib/components/IntroCycle.svelte';
+  import Main from '$lib/components/Main.svelte';
   import rawEpisodes from '$lib/data/bbbc.json';
 
   function shuffle<T>(array: T[]) {
@@ -22,23 +16,22 @@
 	};
 
   // derived, reactive episodes
-    const episodes = $derived(() => {
-    switch (sorting) {
-        case 1:
-        return randomEpisodes;
-        case 2:
-        return [...rawEpisodes].sort((a, b) => a.epNum - b.epNum);
-        case 3:
-        return [...rawEpisodes].sort((a, b) => b.epNum - a.epNum);
-    }
-    });
+    // const episodes = $derived(() => {
+    // switch (sorting) {
+    //     case 1:
+    //     return randomEpisodes;
+    //     case 2:
+    //     return [...rawEpisodes].sort((a, b) => a.epNum - b.epNum);
+    //     case 3:
+    //     return [...rawEpisodes].sort((a, b) => b.epNum - a.epNum);
+    // }
+    // });
 
 </script>
 
 
 <!-- Pass sorting *down* AND allow a callback -->
  <div class="min-h-screen flex flex-col">
-    <Header {sorting} onChangeSorting={setSorting} />
-    <Test class="flex-1"/>
+    <Main class="flex-1"/>
 </div>
 
